@@ -36,10 +36,10 @@ require("bootstrap-sass-webpack");
 
 ### Custom configuration
 
-You can configurate bootstrap-sass-webpack with two configuration files:
+You can configure bootstrap-sass-webpack with two configuration files:
 
 * `bootstrap-sass.config.js`
-* `bootstrap-sass.config.scss`
+* `bootstrap.config.scss`
 
 Add both files *next to each other* in your project. Then:
 

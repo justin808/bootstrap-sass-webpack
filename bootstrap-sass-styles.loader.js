@@ -42,18 +42,20 @@ var partials = [
   "utilities",
   "responsive-utilities"
 ];
+var path = require("path");
+var pathToBootstrapSass = path.normalize(__dirname + "/../bootstrap-sass/assets");
 
 module.exports = function (content) {
   this.cacheable(true);
   var config = this.exec(content, this.resourcePath);
   var start =
-      "@import          \"~bootstrap-sass/assets/stylesheets/bootstrap/variables\";\n"
-    + "@icon-font-path: \"~bootstrap-sass/assets/fonts/bootstrap/\";\n"
-    + "@import          \"./bootstrap-sass.config.scss\";\n";
+    "@import          \""+ pathToBootstrapSass + "/stylesheets/bootstrap/variables\";\n" +
+    "$icon-font-path: \""+ pathToBootstrapSass + "/fonts/bootstrap\";\n" +
+    "@import          \"./bootstrap.config.scss\";\n";
   source = start + partials.filter(function (partial) {
     return config.styles[partial];
   }).map(function (partial) {
-    return "@import \"~bootstrap-sass/assets/stylesheets/bootstrap/" + partial;
+    return "@import \""+ pathToBootstrapSass + "/stylesheets/bootstrap/" + partial + "\";";
   }).join("\n");
   return source;
 }
