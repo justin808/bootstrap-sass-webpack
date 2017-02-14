@@ -1,2 +1,2 @@
-require("style!css!less!./bootstrap-styles!./bootstrap.config.js");
-require("./bootstrap-scripts!./bootstrap.config.js");
+require("style-loader!css-loader!less-loader!./bootstrap-styles.loader!./bootstrap.config.js");
+require("./bootstrap-scripts.loader!./bootstrap.config.js");
